@@ -14,4 +14,16 @@ For this challenge you will be presented with a string such as 800-692-7753 or 8
 Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. 
 If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.
  */
-
+function telephoneCheck(str) {
+    //const re = /(d{3}|\(\d{3}\))d{3}d{4}/;
+    const re = /^(1\s|1)?(\d{3}|\(\d{3}\))(\s|-)?\d{3}(\s|-)?\d{4}$/;
+    const ok = re.exec(str);
+    //console.log(ok)
+    if (!ok) {
+        console.log("Not a valid number")
+        return false
+    }
+    return true;
+  }
+  
+  telephoneCheck("1 (555)-555-5555");
